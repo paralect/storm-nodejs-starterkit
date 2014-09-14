@@ -16,6 +16,14 @@ Starter Kit for Storm and Node.js projects. Tested with
 3. If you want to submit your topologies to real Storm cluster, you need to deploy Storm and add `bin` folder of Storm to
 your PATH variable.
 
+# Project structure
+
+| Folder                | Description                   |
+| --------------------- |-------------------------------|
+| multilang/resources   | JavaScript files (Node.js)    |
+| src/main/java         | Java files                    |
+
+
 # Run topology locally
 
     $ cd storm-nodejs-starterkit
