@@ -24,12 +24,12 @@ your `PATH` variable.
 | `src/main/java`         | Java files                    |
 
 
-### Run topology locally
+### Run topology locally (development mode)
 
     $ cd storm-nodejs-starterkit
     $ bin/run-test-topology.sh
 
-### Submit topology to the cluster
+### Submit topology to the Storm cluster
 
     $ cd storm-nodejs-starterkit
     $ bin/submit-test-topology.sh
@@ -38,7 +38,7 @@ your `PATH` variable.
 
 `File` -> `Open Project` and browse to `pom.xml` file.
 
-### Run topology withing Intellij IDEA
+### Run topology within Intellij IDEA
 
 Open topology java file (i.e. `src/main/java/com/paralect/TestTopology.java`), right-click in the editor and select
 `Run TestTopology.main()`. Or hit <kbd>Ctrl-Shift-F10</kbd>. This will add Build Configuration to your Intellij project. After that you can run (<kbd>Shift+F10</kbd>) or debug (<kbd>Shift+F9</kbd>) project.
