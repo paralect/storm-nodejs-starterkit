@@ -5,13 +5,15 @@ Starter Kit for Storm and Node.js projects. Tested with
 
 # Prerequisites
 
-  1. Maven 3. On Ubuntu install it with:
+1. Maven 3. On Ubuntu install it with:
 
+    ```
     $ sudo apt-get install maven
+    ```
 
-  2. Node.js
+2. Node.js
 
-  3. If you want to submit your topologies to real Storm cluster, you need to deploy Storm and add `bin` folder of Storm to
+3. If you want to submit your topologies to real Storm cluster, you need to deploy Storm and add `bin` folder of Storm to
 your PATH variable.
 
 # Run topology locally
