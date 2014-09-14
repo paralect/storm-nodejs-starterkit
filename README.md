@@ -18,10 +18,10 @@ your PATH variable.
 
 # Project structure
 
-| Folder                | Description                   |
-| --------------------- |-------------------------------|
-| multilang/resources   | JavaScript files (Node.js)    |
-| src/main/java         | Java files                    |
+| Folder                  | Description                   |
+| ----------------------- |-------------------------------|
+| `multilang/resources`   | JavaScript files (Node.js)    |
+| `src/main/java`         | Java files                    |
 
 
 # Run topology locally
