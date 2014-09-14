@@ -40,5 +40,5 @@ your `PATH` variable.
 
 # Run topology withing Intellij IDEA
 
-Open topology java file (i.e. src/main/java/**/TestTopology.java), right-click in the editor and select
-"Run TestTopology.main()" (Ctrl-Shift-F10)
+Open topology java file (i.e. `src/main/java/com/paralect/TestTopology.java`), right-click in the editor and select
+`Run TestTopology.main()`. Or hit <kbd>Ctrl-Shift-F10</kbd>. This will add Build Configuration to your Intellij project. After that you can run (<kbd>Shift+F10</kbd>) or debug (<kbd>Shift+F9</kbd>) project.
