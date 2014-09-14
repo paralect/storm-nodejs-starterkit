@@ -1,7 +1,7 @@
 Storm-Node.js Starter Kit
 =========================
 
-Starter Kit for Storm and Node.js projects. Tested with
+Starter Kit for Apache Storm and Node.js projects. Tested with Apache Storm 0.9.2.
 
 ### Prerequisites
 
