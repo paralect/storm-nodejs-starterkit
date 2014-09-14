@@ -14,7 +14,7 @@ Starter Kit for Storm and Node.js projects. Tested with
 2. Node.js
 
 3. If you want to submit your topologies to real Storm cluster, you need to deploy Storm and add `bin` folder of Storm to
-your PATH variable.
+your `PATH` variable.
 
 # Project structure
 
@@ -36,7 +36,7 @@ your PATH variable.
 
 # Open project with Intellij IDEA
 
-"File" -> "Open Project" and browse to "pom.xml" file.
+`File` -> `Open Project` and browse to `pom.xml` file.
 
 # Run topology withing Intellij IDEA
 
