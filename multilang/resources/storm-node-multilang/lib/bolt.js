@@ -26,7 +26,7 @@ Bolt.prototype._handleEvents = function() {
 	this._protocol.on('ready', function() {
 		self._ready = true;
 		self._processTupleFn = self._definitionFn(self._events);
-		self._events.emit('prepare', self._outputCollector);
+		self._events.emit('prepare', self._outputCollector, self._protocol.getTopologyContext());
 	});
 
 	this._protocol.on('message', function(message) {
