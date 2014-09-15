@@ -61,7 +61,7 @@ public class DatabaseSpout  extends BaseRichSpout {
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("tenantId", "messageId"));
+        declarer.declare(new Fields("tenantId", "message"));
     }
 
     private String mapToJson(Map<String, Object> map) {
