@@ -67,6 +67,7 @@ Read this if you need to quickly install Storm on your local machine
     dataDir=/home/dmitry/apps/zookeeper/data
     clientPort=2181
     ```
+Make sure that `dataDir` exists and writable.
 
 4. Start Zookeeper:
 
