@@ -23,11 +23,11 @@ public class QueueSpout extends BaseRichSpout {
 
     public QueueSpout() {
         _messages = new Object[] {
-            createChangeUserSettingsMap(1, "Tom", "tom@gmail.com"),
-            createChangeUserSettingsMap(2, "John", "john@gmail.com"),
-            createChangeUserSettingsMap(1, "Tom", "tom_new@gmail.com"),
-            createChangeUserSettingsMap(2, "John_new", "john_new@gmail.com"),
-            createChangeUserSettingsMap(3, "Bill", "bill@gmail.com"),
+            createChangeUserSettingsMap(1, 100, "Tom", "tom@gmail.com"),
+            createChangeUserSettingsMap(2, 200, "John", "john@gmail.com"),
+            createChangeUserSettingsMap(1, 100, "Tom", "tom_new@gmail.com"),
+            createChangeUserSettingsMap(2, 200, "John_new", "john_new@gmail.com"),
+            createChangeUserSettingsMap(3, 300, "Bill", "bill@gmail.com"),
         };
     }
 
@@ -43,18 +43,13 @@ public class QueueSpout extends BaseRichSpout {
 
         // pick random message
         Map<String, Object> message = (Map<String, Object>) _messages[_rand.nextInt(_messages.length)];
-        int userId = (int) message.get("userId");
-        String messageId = (String) message.get("messageId");
-        String messageType = (String) message.get("messageType");
-        String json = "";
 
-        try {
-            json = mapToJson(message);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+        // prepare fields
+        int tenantId = (int) message.get("tenantId");
+        String json = mapToJson(message);
 
-        _collector.emit(new Values(messageType, messageId, userId, json)); // emits tuple [messageType, messageId, userId, json]
+        // emits tuple [tenantId, message]
+        _collector.emit(new Values(tenantId, json));
     }
 
     @Override
@@ -67,21 +62,27 @@ public class QueueSpout extends BaseRichSpout {
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("messageType", "messageId", "userId", "message"));
+        declarer.declare(new Fields("tenantId", "message"));
     }
 
 
-    private String mapToJson(Map<String, Object> map) throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(map);
+    private String mapToJson(Map<String, Object> map) {
+        try {
+            return new ObjectMapper().writeValueAsString(map);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return "{}";
     }
 
-    private Map<String, Object> createChangeUserSettingsMap(int userId, String userName, String userEmail) {
+    private Map<String, Object> createChangeUserSettingsMap(int tenantId, int userId, String userName, String userEmail) {
         return ImmutableMap.<String, Object>builder()
             .put("messageType", "ChangeUserSettings")
-            .put("messageId", _counter++)
+            .put("tenantId", tenantId)
             .put("userId", userId)
             .put("userName", userName)
-            .put("email", userEmail)
+            .put("userEmail", userEmail)
             .build();
     }
 }

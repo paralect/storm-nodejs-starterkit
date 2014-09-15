@@ -7,15 +7,15 @@ import backtype.storm.tuple.Fields;
 
 import java.util.Map;
 
-public class EmailCheckerBolt  extends ShellBolt implements IRichBolt {
+public class EventsBolt extends ShellBolt implements IRichBolt {
 
-    public EmailCheckerBolt() {
-        super("node", "processor-topology/email-checker.js");
+    public EventsBolt() {
+        super("node", "processor-topology/events.js");
     }
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("messageType", "userId", "available"));
+        declarer.declare(new Fields("result"));
     }
 
     @Override
@@ -23,3 +23,4 @@ public class EmailCheckerBolt  extends ShellBolt implements IRichBolt {
         return null;
     }
 }
+

@@ -17,7 +17,7 @@ public class ReplayBolt  extends ShellBolt implements IRichBolt {
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("success"));
+        declarer.declare(new Fields("result"));
     }
 
     @Override

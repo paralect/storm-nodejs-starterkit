@@ -11,10 +11,10 @@ public class ProcessorTopology {
 
         TopologyBuilder builder = new TopologyBuilder();
         builder.setSpout("queue", new QueueSpout());
-        builder.setBolt("validator", new ValidatorBolt())
-                .shuffleGrouping("queue");
-        builder.setBolt("email-checker", new EmailCheckerBolt())
-                .fieldsGrouping("validator", new Fields("userEmail"));
+        builder.setBolt("commands", new CommandBolt())
+                .fieldsGrouping("queue", new Fields("tenantId"));
+        builder.setBolt("events", new EventsBolt())
+                .fieldsGrouping("commands", new Fields("tenantId"));
 
         Config conf = new Config();
         conf.setDebug(true);

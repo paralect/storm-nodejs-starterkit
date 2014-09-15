@@ -1,4 +1,4 @@
-package com.paralect.bolts;
+package com.paralect.topologies.processor;
 
 import backtype.storm.task.ShellBolt;
 import backtype.storm.topology.IRichBolt;
@@ -7,15 +7,15 @@ import backtype.storm.tuple.Fields;
 
 import java.util.Map;
 
-public class NodeBolt extends ShellBolt implements IRichBolt {
+public class CommandBolt extends ShellBolt implements IRichBolt {
 
-    public NodeBolt() {
-        super("node", "app.js");
+    public CommandBolt() {
+        super("node", "processor-topology/commands.js");
     }
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("message"));
+        declarer.declare(new Fields("tenantId", "message"));
     }
 
     @Override
