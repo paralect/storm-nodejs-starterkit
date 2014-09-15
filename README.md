@@ -27,12 +27,12 @@ your `PATH` variable.
 ### Run topology locally (development mode)
 
     $ cd storm-nodejs-starterkit
-    $ bin/run-test-topology.sh
+    $ bin/run-simple-topology.sh
 
 ### Submit topology to the Storm cluster
 
     $ cd storm-nodejs-starterkit
-    $ bin/submit-test-topology.sh
+    $ bin/submit-simple-topology.sh
 
 ### Open project with Intellij IDEA
 
